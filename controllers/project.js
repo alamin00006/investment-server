@@ -18,7 +18,9 @@ export const createProject = async (req, res) => {
       exitStrategy,
       googleMapLink,
       totalTokens,
+      totalInvestmentValue,
       totalProjectValue,
+      projectAssetValue,
       minimumInvestmentValue,
       notaryFee,
       sharikanaFee,
@@ -60,7 +62,9 @@ export const createProject = async (req, res) => {
       exitStrategy,
       googleMapLink,
       totalTokens,
+      totalInvestmentValue,
       totalProjectValue,
+      projectAssetValue,
       minimumInvestmentValue,
       notaryFee,
       sharikanaFee,
@@ -115,9 +119,9 @@ export const getProject = async (req, res, next) => {
 export const getProjectDetails = async (req, res, next) => {
   try {
     const id = req?.params?.id;
-    console.log(id);
+
     const project = await Project.findOne({ _id: id });
-    console.log(project);
+
     res.status(200).json({
       status: "success",
       message: "Project Get successfully",

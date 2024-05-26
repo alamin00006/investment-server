@@ -18,9 +18,7 @@ const projectSchema = new mongoose.Schema(
     aboutCity: {
       type: String,
     },
-    // propertyType: {
-    //   type: String,
-    // },
+
     projectType: {
       type: ObjectId,
       ref: "Category",
@@ -55,22 +53,21 @@ const projectSchema = new mongoose.Schema(
       type: String,
     },
 
+    totalInvestmentValue: {
+      type: Number,
+    },
     totalProjectValue: {
+      type: Number,
+    },
+    projectAssetValue: {
       type: Number,
     },
     minimumInvestmentValue: {
       type: Number,
     },
-    // perInvestmentValue: {
-    //   type: Number,
-    // },
-    // underlyingAssetPrice: {
-    //   type: Number,
-    // },
     notaryFee: {
       type: Number,
     },
-
     sharikanaFee: {
       type: Number,
     },
