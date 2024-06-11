@@ -5,22 +5,17 @@ import mongoose from "mongoose";
 // import { fileURLToPath } from "url";
 // import { dirname } from "path";
 
-import usersRoute from "./routes/users.js";
-import adminUsersRoute from "./routes/adminUsers.js";
-import bannerRoute from "./routes/banner.js";
-import projectRoute from "./routes/project.js";
-import categoryRoute from "./routes/category.js";
+import usersRoute from "./src/app/modules/user/user.route.js";
+
+import projectRoute from "./src/app/modules/projects/project.route.js";
+import investRoute from "./src/app/modules/investment/invest.route.js";
+// import categoryRoute from "./routes/category.js";
 
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
 const app = express();
-// app.use(
-//   "/public/uploads",
-//   express.static(path.join(__dirname, "public/uploads"))
-// );
+
 app.use("/public/uploads", express.static("public/uploads"));
 dotenv.config();
 const options = {
@@ -52,11 +47,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/users", usersRoute);
-app.use("/api/admin-users", adminUsersRoute);
-app.use("/api/banner", bannerRoute);
-app.use("/api/project", projectRoute);
-app.use("/api/category", categoryRoute);
+app.use("/api/v1/users", usersRoute);
+app.use("/api/v1/project", projectRoute);
+app.use("/api/v1/invest", investRoute);
+// app.use("/api/category", categoryRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
