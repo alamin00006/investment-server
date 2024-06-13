@@ -42,6 +42,9 @@ const investShema = new mongoose.Schema(
     InvestorPhoto: {
       type: Array,
     },
+    proofInvestPhoto: {
+      type: Array,
+    },
     investorNid: {
       type: Array,
     },

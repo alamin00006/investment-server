@@ -38,3 +38,31 @@ export const getUserLastInvest = async (req, res) => {
     });
   }
 };
+export const updateInvest = async (req, res) => {
+  try {
+    const ivestId = req.params.id;
+
+    const invest = await Invest.updateOne(
+      {
+        _id: ivestId,
+      },
+      {
+        $set: {
+          proofInvestPhoto: req?.body,
+        },
+      }
+    );
+
+    res.status(200).json({
+      status: "success",
+      message: "data update Success",
+      data: invest,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "failed",
+      message: "Not Found Data",
+      error: error.message,
+    });
+  }
+};
