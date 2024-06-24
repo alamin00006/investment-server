@@ -3,7 +3,7 @@ import {
   createInvest,
   getAllInvest,
   getUserLastInvest,
-  //updateInvest,
+  updateInvest,
 } from "./invest.controller.js";
 
 const router = express.Router();
@@ -11,6 +11,6 @@ const router = express.Router();
 router.post("/", createInvest);
 router.get("/", getAllInvest);
 router.get("/:userId", getUserLastInvest);
-//router.route("/:id").patch(updateInvest);
+router.route("/:id").patch(updateInvest);
 
 export default router;
