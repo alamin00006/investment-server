@@ -16,7 +16,7 @@ export const createProject = async (req, res) => {
 
     const project = new Project({
       ...projectData,
-      projectPicture: req?.files?.image?.map((image) => image?.path),
+      // projectPicture: req?.files?.image?.map((image) => image?.path),
       projectPdf: req?.files?.pdf?.map((pdf) => pdf?.path),
       timelines: parsedTimelines,
       googleDriveLinks: parsedGoogleDriveLinks,

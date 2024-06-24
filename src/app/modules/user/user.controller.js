@@ -129,7 +129,7 @@ export const forgotPassword = async (req, res) => {
       return res.status(401).json({
         status: "fail",
         message:
-          "দুঃখিত আমরা এই ইমেইল দিয়ে কোন অ্যাকাউন্ট আমাদের ডাটাবেজে খুঁজে পাইনি দয়া করে আপনি একাউন্ট করুন !",
+          "দুঃখিত ! আমরা এই ইমেইল দিয়ে কোন অ্যাকাউন্ট আমাদের ডাটাবেজে খুঁজে পাইনি, দয়া করে আপনি একাউন্ট করুন !",
       });
     } else {
       const userCode = generateUserCode(user);

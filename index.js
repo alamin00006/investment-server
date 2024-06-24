@@ -5,11 +5,12 @@ import mongoose from "mongoose";
 // import { fileURLToPath } from "url";
 // import { dirname } from "path";
 
+// Routes import
 import usersRoute from "./src/app/modules/user/user.route.js";
-
+import adminUsersRoute from "./src/app/modules/adminUser/adminUser.route.js";
 import projectRoute from "./src/app/modules/projects/project.route.js";
 import investRoute from "./src/app/modules/investment/invest.route.js";
-// import categoryRoute from "./routes/category.js";
+import categoryRoute from "./src/app/modules/Category/category.route.js";
 
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -47,10 +48,11 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
+app.use("/api/v1/admin-users", adminUsersRoute);
 app.use("/api/v1/users", usersRoute);
 app.use("/api/v1/project", projectRoute);
 app.use("/api/v1/invest", investRoute);
-// app.use("/api/category", categoryRoute);
+app.use("/api/v1/category", categoryRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
