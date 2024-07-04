@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { ObjectId } = mongoose.Schema.Types;
 
-const investShema = new mongoose.Schema(
+const investmentSchema = new mongoose.Schema(
   {
     userId: {
       type: ObjectId,
@@ -24,6 +24,12 @@ const investShema = new mongoose.Schema(
     paymentFee: {
       type: Number,
     },
+    totalReceiveAmount: {
+      type: Number,
+    },
+    dueAmount: {
+      type: Number,
+    },
     returnType: {
       type: String,
     },
@@ -42,7 +48,7 @@ const investShema = new mongoose.Schema(
     InvestorPhoto: {
       type: Array,
     },
-    proofInvestPhoto: {
+    proofOfInvestPhoto: {
       type: Array,
     },
     investorNid: {
@@ -54,13 +60,43 @@ const investShema = new mongoose.Schema(
     nomineeNid: {
       type: Array,
     },
+    profitAmountMin: {
+      type: Number,
+    },
+    profitAmountMax: {
+      type: Number,
+    },
+    percentOfReturnMin: {
+      type: Number,
+    },
+    percentOfReturnMax: {
+      type: Number,
+    },
+    totalProfitAmount: {
+      type: Number,
+    },
+    totalPaidProfitAmount: {
+      type: Number,
+    },
+    totalDueProfitAmount: {
+      type: Number,
+    },
+    totalProfitOfPercentage: {
+      type: Number,
+    },
+    investmentStartDate: {
+      type: Date,
+    },
+    investmentEndDate: {
+      type: Date,
+    },
     status: {
       type: String,
-      enum: ["Pending", "Approved", "Canceled"],
+      enum: ["Pending", "Processing", "Approved", "Canceled"],
       default: "Pending",
     },
   },
   { timestamps: true }
 );
-const Invest = mongoose.model("Invest", investShema);
+const Invest = mongoose.model("Investment", investmentSchema);
 export default Invest;

@@ -9,8 +9,11 @@ import mongoose from "mongoose";
 import usersRoute from "./src/app/modules/user/user.route.js";
 import adminUsersRoute from "./src/app/modules/adminUser/adminUser.route.js";
 import projectRoute from "./src/app/modules/projects/project.route.js";
-import investRoute from "./src/app/modules/investment/invest.route.js";
+import investRoute from "./src/app/modules/investment/investment.route.js";
 import categoryRoute from "./src/app/modules/Category/category.route.js";
+import transactionRoute from "./src/app/modules/transaction/transaction.route.js";
+import returnRoute from "./src/app/modules/return/return.route.js";
+import projectTitleRoute from "./src/app/modules/projectTitle/projectTitle.route.js";
 
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -29,6 +32,7 @@ const options = {
   socketTimeoutMS: 45000,
   family: 4,
 };
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL, options);
@@ -44,6 +48,7 @@ mongoose.connection.on("disconnected", () => {
 mongoose.connection.on("connected", () => {
   console.log("mongoDB connected!");
 });
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
@@ -51,8 +56,11 @@ app.use(cors());
 app.use("/api/v1/admin-users", adminUsersRoute);
 app.use("/api/v1/users", usersRoute);
 app.use("/api/v1/project", projectRoute);
-app.use("/api/v1/invest", investRoute);
+app.use("/api/v1/investment", investRoute);
 app.use("/api/v1/category", categoryRoute);
+app.use("/api/v1/transaction", transactionRoute);
+app.use("/api/v1/return", returnRoute);
+app.use("/api/v1/project-title", projectTitleRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

@@ -48,7 +48,7 @@ export const getProject = async (req, res, next) => {
   } catch (error) {
     res.status(500).json({
       status: "error",
-      message: "Failed to Get properties",
+      message: "Failed to get projects",
       error: error.message,
     });
   }

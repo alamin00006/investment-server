@@ -7,11 +7,11 @@ const adminUserSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required:true
+      required: true,
     },
     email: {
       type: String,
-      required:true
+      required: true,
     },
 
     projectId: {
@@ -20,11 +20,11 @@ const adminUserSchema = mongoose.Schema(
       //   required: true,
     },
 
-    // userId: {
-    //   type: String,
-    //   required:true
+    // projectTitleId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "ProjectTitle",
     // },
-    
+
     refferCode: {
       type: String,
     },
@@ -35,18 +35,18 @@ const adminUserSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      required:true
+      required: true,
     },
 
     address: {
       type: String,
-      required:true
+      required: true,
     },
     role: {
       type: String,
       enum: ["superAdmin", "admin", "manager", "prManager"],
       default: "admin",
-      required:true
+      required: true,
     },
     userStatus: {
       type: String,

@@ -6,8 +6,10 @@ const projectSchema = new mongoose.Schema(
     projectTitle: {
       type: String,
     },
-    // prManager: {
-    //   type: String,
+    // projectTitleId: {
+    //   type: ObjectId,
+    //   ref: "ProjectTitle",
+    //   required: true,
     // },
     projectAddress: {
       type: String,
